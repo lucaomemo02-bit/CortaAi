@@ -140,9 +140,7 @@ fun buildComposition(
     presentation: Presentation?,
 ): Composition {
     val items = clips.map { editedItemFor(it) }.toTypedArray()
-    val video = EditedMediaItemSequence.Builder(*items)
-        .experimentalSetForceAudioTrack(true)
-        .build()
+    val video = EditedMediaItemSequence.Builder(items.toList()).build()
 
     val sequences = mutableListOf(video)
     if (music != null) {
